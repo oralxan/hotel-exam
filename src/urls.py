@@ -16,6 +16,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     path('booking/', include('booking.urls')),
+    path('guest/',include("django.contrib.auth.urls")),
     path('guest/', include('guest.urls')),
     path('',include('hotel.urls')),
     path('room/',include('room.urls')),

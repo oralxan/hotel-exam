@@ -82,28 +82,32 @@ def user_logout(request):
 #         'host' : host
 #     }
 #     return render(request, 'accounts/account.html', context)
-from django.shortcuts import render,redirect
-from django.contrib.auth.models import User
+from django.shortcuts import render
 from booking.models import Booking
-from room.models import Model
-from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
+from .forms import SignupForm
 
 def my_post(request):
     if request.user.is_authenticated:
-        post = Booking.objects.filter(author=request.user)
+        bookings = Booking.objects.filter(guest=request.user)  # "author" o'rniga "guest" nomli kalit so'zni ishlatish
         context = {
-            'post': post
+            'bookings': bookings
         }
         return render(request, 'accounts/account.html', context=context)
     else:
-        return render(request, 'accounts/account.html')  
+        return render(request, 'accounts/account.html')
 
-class SignupView(CreateView):
-    form_class = UserCreationForm
+class SignUpView(CreateView):
+    form_class = SignupForm
     template_name = 'registration/signup.html'
-    success_url = reverse_lazy('account')
+    success_url = reverse_lazy('login')
     context_object_name = 'signup'
+
+
+
 def LoginPage(request):
     return render(request,'registration/login.html')
+
+
+

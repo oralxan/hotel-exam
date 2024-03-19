@@ -10,7 +10,7 @@ class Booking(Model):
         on_delete=CASCADE
 
     )
-    author = ForeignKey(
+    guest = ForeignKey(
         Guest,
         verbose_name='guest',
         on_delete=CASCADE
