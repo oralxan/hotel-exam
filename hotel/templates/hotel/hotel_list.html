@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+  HOTEL
+{% endblock title %}
+{% block style %}
+<style>
+  body {
+    background-color:#a98466; 
+  }
+  .hotel {
+    border: 3px solid rgb(118, 58, 8);
+    padding: 10px;
+    background-color: #d4a373;
+    text-align: right;
+    display: flex;
+  }
+  .hotel .hoteltwo{
+    text-align: left;
+    padding: 15px;
+    font-family: "Neuton", serif;
+
+  }
+
+  
+</style>
+{% endblock style %}
+{% block content %}
+ {% for hotel in hotels %}
+ <div class="hotel">
+  <img src="{{ hotel.image.url }}" alt="">
+
+  <div class="hoteltwo">
+  <h1><i class="fa-solid fa-signature" style="color: #f0cb14;"></i> :{{ hotel.name }}</h1>
+  <h1><i class="fa-solid fa-location-dot" style="color: #fbf6ee;"></i> : {{ hotel.address }}</h1>
+  <h1><i class="fa-solid fa-city" style="color: #713b09;"></i> : {{ hotel.city }}</h1>
+  <h1><i class="fa-solid fa-globe" style="color: #ffa047;"></i> : {{ hotel.country }}</h1>
+  <h1> <i class="fa-solid fa-star" style="color: #FFD43B;"></i>:{{ hotel.rating }}</h1>
+  <h3><i class="fa-solid fa-audio-description" style="color: #ffffff;"></i> : {{ hotel.description }}</h3>
+</div>
+
+ </div>
+ {% endfor %}
+{% endblock content %}

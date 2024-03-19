@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}
+  Rooms
+{% endblock title %}
+{% block style %}
+<style>
+  
+  body {
+    background-color:#a98467; /* Orqa fon rangini o'zgartiring */
+  }
+  .room {
+    border: 3px solid black;
+    padding: 10px;
+    background-color: #d4a373;
+    text-align: right;
+    display: flex;
+  }
+  .room .roomtwo{
+    text-align: left;
+    padding: 15px;
+    font-family: "Neuton", serif;
+
+  }
+</style>
+{% endblock style %}
+{% block content %}
+   {% for room in rooms %}
+   <div class="room">
+    <img src="{{ room.image.url }}" alt="">
+
+    <div class="roomtwo">
+      <h1>Hotel name: {{ room.hotel }}</h1>
+      <h1>Number Room :{{ room.number }}</h1>
+      <h1>Capacity of th Room :{{ room.capacity }}</h1>
+      <h1>Price Per Night Room : {{ room.perice_per_night }}</h1>
+      <h3> {% if room.is_used %}
+      <p>Used: YES</p>
+      {% else %}
+      <p>Used: NO</p>
+      {% endif %}
+    </h3>
+    <h2>Description : {{ room.description }}</h2>
+      
+
+    </div>
+
+   </div>
+   {% endfor %}
+{% endblock content %}
