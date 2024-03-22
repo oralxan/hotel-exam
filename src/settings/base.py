@@ -24,9 +24,11 @@ INSTALLED_APPS = [
     'room',
     'booking',
     ##
+    'dj_rest_auth',
     'django_cleanup',
     'rest_framework',
     'rest_framework.authtoken',
+    'drf_spectacular',
 ]
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES':[
@@ -41,8 +43,15 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication'
-    ]
+    ],
+    'DEFAULT_SCHEMA_CLASS' : 'drf_spectacular.openapi.AutoSchema',
 }
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'LIFEHOUSE',
+    'DESCRIPTION':'MYPROJECT',
+    'VERSION':'1.0.0'
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

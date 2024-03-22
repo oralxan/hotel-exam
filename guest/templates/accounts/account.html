@@ -1,24 +1,43 @@
 
 {% extends 'base.html' %}
 {% block title %}
- Postys
+ Guest
 {% endblock title %}
 {% block content %}
-<h1 style="text-align: center;">Your Account:{{ request.user.username }}</h1>
 
-<div class="dib">
+
+<div class="dib" style="text-align: center;">
 
     {% if user.is_authenticated %}
-    <a>{{ user.username }}</a>|
-    <a href="{% url 'logout' %}" style="color:#dd1d1d; text-decoration: none;"><i class="fa-solid fa-right-from-bracket" style="color: #e01a1a;"></i>Logout</a>
-    
+    <h1><a>{{ user.username }}</a>|</h1>
+    <h1><a href="{% url 'logout' %}" style="color:#83450b; text-decoration: none;"><i class="fa-solid fa-right-from-bracket" style="color: #a06c0d;"></i>Logout</a></h1>
+<!-- <div style="display: flex;"> -->
+  <h1><i class="fa-solid fa-w" style="color: #FFD43B;"></i></h1>
+  <h1><i class="fa-solid fa-e" style="color: #63E6BE;"></i></h1>
+  <H1><i class="fa-solid fa-l" style="color: #74C0FC;"></i></H1>
+  <H1><i class="fa-solid fa-c" style="color: #B197FC;"></i></H1>
+  <H1><i class="fa-solid fa-o" style="color: #f066dd;"></i></H1>
+  <h1><i class="fa-solid fa-m" style="color: #a2e774;"></i></h1>
+  <h1><i class="fa-solid fa-e" style="color: #ffe875;"></i></h1>
+<!-- </div> -->
+
      
    {% else %}
-    <a href="{% url 'LoginPage' %}" style="text-decoration: none; color: #dd1d1d;" >LogIn</a>|
-    <a href="{% url 'signup' %}"><i class="fa-solid fa-user-plus" style="color: #dd1d1d;">Signup</i></a>
+   <div style="margin: 30px;">
+    <h1><a href="{% url 'LoginPage' %}" style="text-decoration: none; color: #674207;" >LogIn</a>|</h1>
+    <h2><a href="{% url 'signup' %}"><i class="fa-solid fa-user-plus" style="color: #7f4b06;">Signup</i></a></h2>
+    <h1>You follow us and we follow You</h1>
+  </div>
  {% endif %}
- 
-  
-</div>
 
+</div>
+<h1 style="color: #674207; text-align: center;">당신은 우리를 따르고 우리는 당신을 따릅니다</h1>
+<h1>❀</h1>
+<h1>❀</h1>
+<h1>❀</h1>
+<div style="text-align: right;">
+<h1>❀</h1>
+<h1>❀</h1>
+<h1>❀</h1>
+</div>
 {% endblock content %}

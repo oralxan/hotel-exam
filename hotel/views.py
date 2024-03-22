@@ -1,24 +1,13 @@
-from rest_framework import generics
-from .models import Hotel
 from .serializers import HotelSerializer
-class HotelList(generics.ListAPIView):
+from .models import Hotel
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import AllowAny
+from django.shortcuts import render,redirect
+class HotelViewSet(ModelViewSet):
     queryset = Hotel.objects.all()
-    serializer_class=HotelSerializer
-class HotelDetail(generics.RetrieveAPIView):
-    queryset=Hotel.objects.all()
-    serializer_class = HotelSerializer
-    
-class HotelCreate(generics.CreateAPIView):
-    queryset=Hotel.objects.all()
-    serializer_class = HotelSerializer
-class HotelUpdate(generics.UpdateAPIView):
-    queryset = Hotel.objects.all()
-    serializer_class=HotelSerializer
-class HotelDestroy(generics.DestroyAPIView):
-    queryset=Hotel.objects.all()
     serializer_class = HotelSerializer
 
-################
+
 from django.shortcuts import render,redirect
 from .models import Hotel
 from .serializers import HotelSerializer
@@ -30,7 +19,6 @@ def home_page(request):
     return render(request,'hotel/home_pagea.html')
 
 def hotel_lista(request):
-
     hotels = Hotel.objects.all()
     context = {
         'hotels': hotels

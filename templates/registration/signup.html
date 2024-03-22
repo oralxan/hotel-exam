@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 {% block title %}
-    signup
+    LogIn
 {% endblock title %}
 {% block content %}
-  <h1>Sign Up</h1>
-  <form method="post" enctype="multipart/form-data">
+<div style="text-align: center; color: brown; background-color: black;">
+  <h1 style="color: antiquewhite;">SignUp</h1>
+  <form method="post" enctype="multipart/form-data" style="text-align: center;">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Sign up">
+    <button type="submit" class="btn btn-light">SINGUP</button>
+
   </form>
+</div>
 {% endblock content %}
+

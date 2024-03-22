@@ -1,10 +1,7 @@
 from django.urls import path
+from rest_framework.routers import DefaultRouter
 from .views import (
-    HotelList,
-    HotelDetail,
-    HotelCreate,
-    HotelUpdate,
-    HotelDestroy,
+    HotelViewSet,
     home_page,
     hotel_lista,
     hotel_detaila,
@@ -12,12 +9,10 @@ from .views import (
     hotel_updatea,
     hotel_deletea
 )
+router = DefaultRouter()
+router.register('hotels/', HotelViewSet, basename='hotel')
+urlpatterns = []
 urlpatterns =[
-    path('hotel/list/', HotelList.as_view(),name='gift_list'),
-    path('hotel/detail/<int:pk>/', HotelDetail.as_view(),name='gift_detail'),
-    path('hotel/create/', HotelCreate.as_view(),name='gift_create'),
-    path('hotel/update/<int:pk>/', HotelUpdate.as_view(),name='gift_update'),
-    path('hotel/delete/<int:pk>/', HotelDestroy.as_view(),name='gift_destroy'),
     path('',home_page, name='home_pagea'),
     path('hotel/', hotel_lista,name='hotel_list'),
     path('hotel/<int:pk>/',hotel_detaila,name='hotel_detail'),
@@ -26,3 +21,4 @@ urlpatterns =[
     path('hotel/delete/<int:pk>/',hotel_deletea , name ='hotel_delete'),
 
 ]
+urlpatterns += router.urls

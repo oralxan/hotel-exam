@@ -1,22 +1,28 @@
 from rest_framework import generics
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import AllowAny
 from django.shortcuts import render,redirect
 from .models import Room
 from .serializers import RoomSerializer
-class RoomList(generics.ListAPIView):
+# class RoomList(generics.ListAPIView):
+#     queryset = Room.objects.all()
+#     serializer_class=RoomSerializer
+# class RoomDetail(generics.RetrieveAPIView):
+#     queryset=Room.objects.all()
+#     serializer_class = RoomSerializer
+# class RoomCreate(generics.CreateAPIView):
+#     queryset=Room.objects.all()
+#     serializer_class = RoomSerializer
+# class RoomUpdate(generics.UpdateAPIView):
+#     queryset = Room.objects.all()
+#     serializer_class=RoomSerializer
+# class RoomDestroy(generics.DestroyAPIView):
+#     queryset=Room.objects.all()
+#     serializer_class =RoomSerializer
+class RoomViewSet(ModelViewSet):
     queryset = Room.objects.all()
-    serializer_class=RoomSerializer
-class RoomDetail(generics.RetrieveAPIView):
-    queryset=Room.objects.all()
     serializer_class = RoomSerializer
-class RoomCreate(generics.CreateAPIView):
-    queryset=Room.objects.all()
-    serializer_class = RoomSerializer
-class RoomUpdate(generics.UpdateAPIView):
-    queryset = Room.objects.all()
-    serializer_class=RoomSerializer
-class RoomDestroy(generics.DestroyAPIView):
-    queryset=Room.objects.all()
-    serializer_class =RoomSerializer
+
 
 ###############################################
 def home_pagea(request):
